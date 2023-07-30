@@ -106,7 +106,7 @@ spec:
             limits:
               memory: "2Gi"
               cpu: "1000m"
-            request:
+            requests:
               memory: 500Mi
               cpu: "500m"
           ports:
