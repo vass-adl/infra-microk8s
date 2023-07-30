@@ -4,6 +4,7 @@ metadata:
   name: devops-tools
 ---
 apiVersion: PersistentVolume
+kind: PersistenVolume
 metadata:
   name: jenkins-pv-volume
   labels:
