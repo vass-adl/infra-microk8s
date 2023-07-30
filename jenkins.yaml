@@ -20,6 +20,14 @@ spec:
     - ReadWriteOnce
   local:
     path: /mnt
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - ubuntu-home
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
