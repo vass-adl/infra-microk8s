@@ -96,9 +96,9 @@ spec:
         app: jenkins-server
     spec:
       securityContext:
-        fsGroup: 1000
-        runAsUser: 1000
-      ServiceAccountNaem: jenkins-admin
+            fsGroup: 1000
+            runAsUser: 1000
+      serviceAccountName: jenkins-admin
       containers:
         - name: jenkins
           image: jenkins/jenkins:lts
