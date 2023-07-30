@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   name: devops-tools
 ---
-apiVersion: PersistentVolume
+apiVersion: v1
 kind: PersistenVolume
 metadata:
   name: jenkins-pv-volume
