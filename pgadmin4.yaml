@@ -38,7 +38,7 @@ spec:
       containers:
       - name: pgadmin4
         image: dpage/pgadmin4:latest
-        envForm:
+        envFrom:
         - configMapRef:
             name: pgadmin4-configuration
         ports:
