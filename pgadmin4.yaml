@@ -8,6 +8,17 @@ data:
   PGADMIN_DEFAULT_EMAIL: devops.manuel@gmail.com
   PGADMIN_DEFAULT_PASSWORD: devopsmanuel
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pgadmin4-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -33,6 +44,20 @@ spec:
         ports:
         - containerPort: 80
           name: pgadmin4
+        volumeMounts:
+        - name: pv-pgadmin4
+          mountPath: /var/lib/pgadmin
+      volumes:
+      - name: pv-pgadmin4
+        persistentVolumeClaim:
+          claimName: pgadmin4-pv-claim
+      initContainers:
+        - name: pgadmin-data-permission-fix
+          image: busybox
+          command: ["/bin/chown", "-R", "5050:5050", "/var/lib/pgadmin"]
+          volumeMounts:
+          - name: pv-pgadmin4
+          mountPath: /var/lib/pgadmin
 ---
 apiVersion: v1
 kind: Service
