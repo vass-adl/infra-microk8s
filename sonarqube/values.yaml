@@ -1,0 +1,10 @@
+persistence:
+  enable: true
+
+ingress:
+  enabled: true
+  hosts:
+    - name: sonarqube.manueldevops.tech
+      path: /
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "64"
