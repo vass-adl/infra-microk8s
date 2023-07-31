@@ -68,7 +68,7 @@ spec:
         - name: pv-data
           mountPath: /var/lib/postgresql/data
       volumes:
-      - nmae: pv-data
+      - name: pv-data
         persistentVolumeClaim:
           claimName: postgres-pv-claim
 ---
