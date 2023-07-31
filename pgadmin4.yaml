@@ -57,7 +57,7 @@ spec:
           command: ["/bin/chown", "-R", "5050:5050", "/var/lib/pgadmin"]
           volumeMounts:
           - name: pv-pgadmin4
-          mountPath: /var/lib/pgadmin
+            mountPath: /var/lib/pgadmin
 ---
 apiVersion: v1
 kind: Service
